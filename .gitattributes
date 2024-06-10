@@ -64,4 +64,3 @@
 *.js linguist-detectable=false
 *.scss linguist-detectable=false
 *.html linguist-detectable=false
-*.aspx linguist-detectable=true
