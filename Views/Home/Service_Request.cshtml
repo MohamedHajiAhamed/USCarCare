@@ -1,0 +1,61 @@
+﻿@model IEnumerable<USCarCare.Models.tbl_service>
+
+@{
+    ViewBag.Title = "Service_Request";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+
+<h2>Service Request</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Car_Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car_Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car_Registration_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Service_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Special_Request)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Car_Brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Car_Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Car_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Car_Registration_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Service_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Special_Request)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details_service", new { id = item.id }) |
+            <a href="~/tbl_service1/Delete?id=@item.id">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

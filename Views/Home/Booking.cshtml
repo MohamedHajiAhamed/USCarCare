@@ -1,0 +1,187 @@
+﻿@model USCarCare.Models.tbl_service
+
+@{
+    ViewBag.Title = "Booking";
+    Layout = "~/Views/Shared/Customer_layout.cshtml";
+}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="~/lib/animate/animate.min.css" rel="stylesheet">
+<link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="~/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+<link href="~/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/css/style.css" rel="stylesheet">
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
+
+    .registration-container {
+        margin: 0 auto;
+        width: 50%;
+        background-color: #ffffff;
+        padding: 10px;
+        margin-top: 50px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-horizontal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        min-width: 450px;
+    }
+
+    .btn btn-success {
+        min-width: 450px;
+    }
+
+    button {
+        min-width: 450px;
+        min-height: 50px;
+    }
+</style>
+
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(../../img/carousel-bg-2.jpg);">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Booking</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Booking</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="registration-container">
+        @using (Html.BeginForm())
+
+        {
+            @Html.AntiForgeryToken()
+            
+        <div class="form-horizontal">
+            <h3>Book A Service</h3>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Car_Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Car_Brand,
+                                new SelectList(new[]
+                                    {
+                                      
+                                         new SelectListItem { Value = "Mercedes Benz", Text = "Mercedes Benz" },
+                                         new SelectListItem { Value = "Audi", Text = "Audi" },
+                                         new SelectListItem { Value = "Bentley", Text = "Bentley" },
+                                         new SelectListItem { Value = "BMW", Text = "BMW" },
+                                          new SelectListItem { Value = "Renault", Text = "Renault" },
+                                           new SelectListItem { Value = "TATA", Text = "TATA" },
+                                            new SelectListItem { Value = "Suzuki", Text = "Suzuki" },
+                                            new SelectListItem { Value = "Mahindra", Text = "Mahindra" },
+                                              new SelectListItem { Value = "Hyundai", Text = "Hyundai" },
+                                              new SelectListItem { Value = "Honda", Text = "Honda" },
+
+
+                                 },
+                                    "Value", "Text"),
+
+                                     new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Car_Brand, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Car_Model, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Car_Model, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Car_Model, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Car_Type, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+     @Html.DropDownListFor(model => model.Car_Type,
+                     new SelectList(new[]
+                         {
+                           
+                             
+                              new SelectListItem { Value = "Sedan", Text = "Sedan" },
+                              new SelectListItem { Value = "Hatch back", Text = "Hatch Back" },
+                              new SelectListItem { Value = "SUV", Text = "SUV" },
+                               new SelectListItem { Value = "Jeep", Text = "Jeep" },
+
+
+                      },
+                         "Value", "Text"),
+
+                          new { @class = "form-control" })
+     @Html.ValidationMessageFor(model => model.Car_Type, "", new { @class = "text-danger" })
+ </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Car_Registration_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Car_Registration_Number, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Car_Registration_Number, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Service_Type, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Service_Type,
+                                    new SelectList(new[]
+                                        {
+                                           new SelectListItem { Value = "Full Service", Text = "Full Service" },
+                                            new SelectListItem { Value = "Painting", Text = "Painting" },
+                                             new SelectListItem { Value = "Oil Changing", Text = "Oil Changing" },
+                                             new SelectListItem { Value = "Electrical", Text = "Electrical" },
+                                              new SelectListItem { Value = "A/C Gas Refill", Text = "A/C Gas Refill" }
+
+
+                                     },
+                                        "Value", "Text"),
+
+                                         new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Service_Type, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Special_Request, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Special_Request, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Special_Request, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" value="book" class="btn btn-success">Book</button>
+                </div>
+            </div>
+        </div>
+       
+        }
+    </div>
+
+     

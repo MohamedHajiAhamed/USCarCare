@@ -1,0 +1,66 @@
+﻿@model USCarCare.Models.tbl_service
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/admin_layout2.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Car_Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car_Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Car_Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car_Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Car_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Car_Registration_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car_Registration_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Special_Request)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Special_Request)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   
+    @Html.ActionLink("Back to List", "Service_Request")
+</p>
